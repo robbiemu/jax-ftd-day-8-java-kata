@@ -19,9 +19,9 @@ public class Species implements Comparable<Species> {
 
 	public boolean isMember(GrowthModel growthModel) {
 		return ((Math.abs(this.growthModel.getLengthToWingspan() - growthModel.getLengthToWingspan())
-				/ this.growthModel.getLengthToWingspan()) < this.getTolerance()
+				/ this.growthModel.getLengthToWingspan()) <= this.getTolerance()
 				&& (Math.abs(this.growthModel.getLeavesEatenToWeight() - growthModel.getLeavesEatenToWeight())
-						/ this.growthModel.getLeavesEatenToWeight()) < this.getTolerance());
+						/ this.growthModel.getLeavesEatenToWeight()) <= this.getTolerance());
 	}
 
 	@Override

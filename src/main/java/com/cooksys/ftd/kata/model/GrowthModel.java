@@ -14,6 +14,15 @@ public class GrowthModel {
 		this.lengthToWingspan = lengthToWingspan;
 		this.leavesEatenToWeight = leavesEatenToWeight;
 	}
+	
+	public static GrowthModel modelSample(Sample sample) {
+		double leavesEaten = sample.getButterpillar().getLeavesEaten();
+		double length = sample.getButterpillar().getLength();
+		double wingspan = sample.getCatterfly().getWingspan();
+		double weight = sample.getCatterfly().getWeight();
+
+		return new GrowthModel(wingspan/length, weight/leavesEaten);
+	}
 
 	public Catterfly convert(Butterpillar butterpillar) {
 		return new Catterfly(butterpillar.getLength() * this.getLengthToWingspan(),
